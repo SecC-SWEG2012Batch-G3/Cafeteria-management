@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketplace · Submit Bid (Seller)</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div>
+          <div class="breadcrumbs">Digital Marketplace / RFQs</div>
+          <div class="title">Submit Bid</div>
+        </div>
+        <div class="inline">
+          <span class="badge">RFQ: 5,000 × 50kg Cement</span>
+          <span class="badge">Deadline: Sep 30</span>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <section class="card">
+          <h3>RFQ details</h3>
+          <div class="grid">
+            <div class="inline"><span class="subtle">Buyer</span><span>Bunna Group</span></div>
+            <div class="inline"><span class="subtle">Delivery</span><span>Addis Ababa, Warehouse A</span></div>
+            <div class="inline"><span class="subtle">Payment</span><span>Escrow</span></div>
+            <div class="inline"><span class="subtle">Incoterms</span><span>DDP</span></div>
+          </div>
+          <div class="divider"></div>
+          <div class="grid">
+            <div class="inline"><span class="subtle">Specs</span><span>CEM I 42.5R, ISO 9001</span></div>
+            <div class="inline"><span class="subtle">Attachments</span><span class="chip">specs.pdf</span></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Your bid</h3>
+          <div class="row">
+            <div class="field">
+              <label>Unit price (ETB)</label>
+              <input type="number" placeholder="e.g. 318" />
+            </div>
+            <div class="field">
+              <label>Lead time (days)</label>
+              <input type="number" placeholder="e.g. 12" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Validity until</label>
+              <input type="date" />
+            </div>
+            <div class="field">
+              <label>Minimum order quantity</label>
+              <input type="number" placeholder="Optional" />
+            </div>
+          </div>
+          <div class="field">
+            <label>Notes to buyer</label>
+            <textarea placeholder="Inclusions, exclusions, warranties, etc."></textarea>
+          </div>
+          <div class="divider"></div>
+          <div class="inline">
+            <input type="checkbox" id="escrow" checked />
+            <label for="escrow">I accept escrow and marketplace terms</label>
+          </div>
+          <div class="actions">
+            <button class="btn">Submit bid</button>
+            <button class="btn secondary">Save draft</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+  </html>
+

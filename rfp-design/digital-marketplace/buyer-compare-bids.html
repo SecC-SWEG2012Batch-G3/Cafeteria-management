@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketplace · Compare Bids (Buyer)</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div>
+          <div class="breadcrumbs">Digital Marketplace / RFQs</div>
+          <div class="title">Compare Bids</div>
+        </div>
+        <div class="inline">
+          <span class="badge">RFQ: 5,000 × 50kg Cement</span>
+          <span class="badge">Status: Under review</span>
+        </div>
+      </div>
+
+      <section class="card">
+        <div class="grid cols-3">
+          <div class="kpi"><span class="subtle">Bids</span><span class="value">7</span></div>
+          <div class="kpi"><span class="subtle">Lowest price</span><span class="value">ETB 315</span></div>
+          <div class="kpi"><span class="subtle">Fastest lead time</span><span class="value">9 days</span></div>
+        </div>
+        <div class="actions" style="justify-content:flex-end; margin-top: 8px;">
+          <select>
+            <option>Sort by: Score</option>
+            <option>Sort by: Price</option>
+            <option>Sort by: Lead time</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="card" style="margin-top: 16px;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Supplier</th>
+              <th>Unit price</th>
+              <th>Lead time</th>
+              <th>Incoterms</th>
+              <th>Quality / Rating</th>
+              <th>Compliance</th>
+              <th>Score</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Global Cements PLC</td>
+              <td>ETB 318</td>
+              <td>12 days</td>
+              <td>DDP</td>
+              <td>4.7★</td>
+              <td><span class="chip pill-success">Pass</span></td>
+              <td>92</td>
+              <td><button class="btn secondary">Compare</button></td>
+            </tr>
+            <tr>
+              <td>Addis Builders Supply</td>
+              <td>ETB 315</td>
+              <td>14 days</td>
+              <td>CIF</td>
+              <td>4.4★</td>
+              <td><span class="chip pill-success">Pass</span></td>
+              <td>90</td>
+              <td><button class="btn secondary">Compare</button></td>
+            </tr>
+            <tr>
+              <td>East Africa Materials</td>
+              <td>ETB 327</td>
+              <td>9 days</td>
+              <td>FOB</td>
+              <td>4.2★</td>
+              <td><span class="chip pill-warning">Conditional</span></td>
+              <td>88</td>
+              <td><button class="btn secondary">Compare</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="grid cols-2" style="margin-top: 16px;">
+        <div class="card">
+          <h3>Side-by-side comparison</h3>
+          <div class="row">
+            <div class="field">
+              <label>Supplier A</label>
+              <input type="text" value="Global Cements PLC" />
+            </div>
+            <div class="field">
+              <label>Supplier B</label>
+              <input type="text" value="Addis Builders Supply" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Unit price</label>
+              <input type="text" value="ETB 318" />
+            </div>
+            <div class="field">
+              <label>Unit price</label>
+              <input type="text" value="ETB 315" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Lead time</label>
+              <input type="text" value="12 days" />
+            </div>
+            <div class="field">
+              <label>Lead time</label>
+              <input type="text" value="14 days" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Notes</label>
+              <input type="text" value="Includes unloading" />
+            </div>
+            <div class="field">
+              <label>Notes</label>
+              <input type="text" value="Excludes unloading" />
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="actions">
+            <button class="btn">Award to Global Cements PLC</button>
+            <button class="btn secondary">Request best & final offers</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>RFQ summary</h3>
+          <div class="grid">
+            <div class="inline"><span class="subtle">Item</span><span>50kg Cement</span></div>
+            <div class="inline"><span class="subtle">Quantity</span><span>5,000</span></div>
+            <div class="inline"><span class="subtle">Delivery</span><span>Addis Ababa, Warehouse A</span></div>
+            <div class="inline"><span class="subtle">Payment</span><span>Escrow</span></div>
+            <div class="inline"><span class="subtle">Deadline</span><span>Sep 30</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+  </html>
+
