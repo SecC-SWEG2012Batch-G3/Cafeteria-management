@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketplace · Create RFQ (Buyer)</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div>
+          <div class="breadcrumbs">Digital Marketplace / RFQs</div>
+          <div class="title">Create RFQ</div>
+        </div>
+        <div class="inline">
+          <span class="badge">Sealed bids</span>
+          <span class="badge">Auto-compare enabled</span>
+        </div>
+      </div>
+
+      <div class="grid cols-2">
+        <section class="card">
+          <h3>RFQ Details</h3>
+          <div class="row">
+            <div class="field">
+              <label>RFQ title</label>
+              <input type="text" placeholder="e.g. 5,000 units of 50kg Cement" />
+            </div>
+            <div class="field">
+              <label>Category</label>
+              <select>
+                <option>Construction Materials</option>
+                <option>Agri Inputs</option>
+                <option>Industrial Equipment</option>
+                <option>Services</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Quantity</label>
+              <input type="number" placeholder="5000" />
+            </div>
+            <div class="field">
+              <label>Unit</label>
+              <select>
+                <option>kg</option>
+                <option>ton</option>
+                <option>item</option>
+                <option>package</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Specifications / Technical requirements</label>
+            <textarea placeholder="Standards, grade, packaging, certifications, testing requirements..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Attachments</label>
+            <div class="inline">
+              <span class="chip">specs.pdf</span>
+              <span class="chip">qa-checklist.xlsx</span>
+              <span class="help">(drag-and-drop in prototype)</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3>Logistics & Terms</h3>
+          <div class="row">
+            <div class="field">
+              <label>Delivery location</label>
+              <input type="text" placeholder="Addis Ababa, Warehouse A" />
+            </div>
+            <div class="field">
+              <label>Incoterms</label>
+              <select>
+                <option>EXW</option>
+                <option>FOB</option>
+                <option>CIF</option>
+                <option>DDP</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Payment terms</label>
+              <select>
+                <option>Escrow (recommended)</option>
+                <option>Net 15</option>
+                <option>Net 30</option>
+                <option>Milestone-based</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Expected delivery window</label>
+              <input type="text" placeholder="2–3 weeks after PO" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Response deadline</label>
+              <input type="date" />
+            </div>
+            <div class="field">
+              <label>Bid visibility</label>
+              <select>
+                <option>Sealed until deadline</option>
+                <option>Rolling (visible as submitted)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="actions">
+            <button class="btn">Publish RFQ</button>
+            <button class="btn secondary">Save Draft</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:16px">
+        <h3>Target suppliers</h3>
+        <div class="inline">
+          <span class="chip">Global Cements PLC</span>
+          <span class="chip">Addis Builders Supply</span>
+          <span class="chip">East Africa Materials</span>
+          <span class="help">Suppliers can be invited or RFQ can be public</span>
+        </div>
+      </section>
+    </div>
+  </body>
+  </html>
+
