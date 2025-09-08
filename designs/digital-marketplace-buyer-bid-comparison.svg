@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024">
+  <defs>
+    <style>
+      .title { font: 700 20px Arial, sans-serif; fill: #111; }
+      .subtitle { font: 600 14px Arial, sans-serif; fill: #333; }
+      .label { font: 600 12px Arial, sans-serif; fill: #333; }
+      .text { font: 12px Arial, sans-serif; fill: #555; }
+      .muted { font: 12px Arial, sans-serif; fill: #888; }
+      .btn { font: 700 14px Arial, sans-serif; fill: #fff; }
+      .ok { fill: #1a7f37; }
+      .warn { fill: #b45309; }
+      .bad { fill: #b42318; }
+      .badge { font: 600 11px Arial, sans-serif; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1440" height="1024" fill="#f7f8fa" />
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1440" height="64" fill="#0a2540" />
+  <text x="24" y="40" class="title" fill="#fff">Bunna Trade Hub</text>
+
+  <!-- Breadcrumbs -->
+  <text x="24" y="92" class="text">Marketplace / RFQs / RFQ-2024-0042 / Compare Bids</text>
+
+  <!-- Main card -->
+  <rect x="24" y="108" width="1392" height="892" rx="8" fill="#ffffff" stroke="#e6e9ef" />
+
+  <!-- RFQ Summary -->
+  <text x="44" y="140" class="title">Compare Bids</text>
+  <text x="44" y="162" class="muted">RFQ: A4 Copy Paper • Qty: 5,000 • Delivery: Addis • By 30 Nov</text>
+
+  <!-- Seller columns header -->
+  <rect x="44" y="186" width="1352" height="42" fill="#f0f3f8" />
+  <text x="56" y="212" class="badge">Criteria</text>
+
+  <rect x="320" y="186" width="356" height="42" fill="#f0f3f8" />
+  <text x="332" y="212" class="badge">Supplier A</text>
+
+  <rect x="676" y="186" width="356" height="42" fill="#f0f3f8" />
+  <text x="688" y="212" class="badge">Supplier B</text>
+
+  <rect x="1032" y="186" width="364" height="42" fill="#f0f3f8" />
+  <text x="1044" y="212" class="badge">Supplier C</text>
+
+  <!-- Criteria rows -->
+  <!-- Total price -->
+  <rect x="44" y="228" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="258" class="label">Total price (ETB)</text>
+  <text x="332" y="258" class="text">4,850,000</text>
+  <text x="688" y="258" class="text">4,930,000</text>
+  <text x="1044" y="258" class="text">4,780,000</text>
+
+  <!-- Unit price -->
+  <rect x="44" y="276" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="306" class="label">Unit price</text>
+  <text x="332" y="306" class="text">970</text>
+  <text x="688" y="306" class="text">986</text>
+  <text x="1044" y="306" class="text">956</text>
+
+  <!-- Lead time -->
+  <rect x="44" y="324" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="354" class="label">Lead time (days)</text>
+  <text x="332" y="354" class="text">7</text>
+  <text x="688" y="354" class="text">5</text>
+  <text x="1044" y="354" class="text">10</text>
+
+  <!-- Payment terms -->
+  <rect x="44" y="372" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="402" class="label">Payment terms</text>
+  <text x="332" y="402" class="text">30% advance, 70% on delivery</text>
+  <text x="688" y="402" class="text">LC at sight</text>
+  <text x="1044" y="402" class="text">Net 30</text>
+
+  <!-- Compliance -->
+  <rect x="44" y="420" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="450" class="label">Spec compliance</text>
+  <circle cx="344" cy="446" r="6" class="ok" />
+  <circle cx="700" cy="446" r="6" class="ok" />
+  <circle cx="1056" cy="446" r="6" class="warn" />
+
+  <!-- Warranty -->
+  <rect x="44" y="468" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="498" class="label">Warranty</text>
+  <text x="332" y="498" class="text">6 months</text>
+  <text x="688" y="498" class="text">12 months</text>
+  <text x="1044" y="498" class="text">3 months</text>
+
+  <!-- Delivery -->
+  <rect x="44" y="516" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="546" class="label">Delivery terms</text>
+  <text x="332" y="546" class="text">DDP</text>
+  <text x="688" y="546" class="text">DAP</text>
+  <text x="1044" y="546" class="text">EXW</text>
+
+  <!-- Attachments -->
+  <rect x="44" y="564" width="276" height="48" fill="#ffffff" />
+  <text x="56" y="594" class="label">Attachments</text>
+  <text x="332" y="594" class="text">Spec.pdf, Certs.zip</text>
+  <text x="688" y="594" class="text">Spec.pdf</text>
+  <text x="1044" y="594" class="text">Spec.pdf, Samples.jpg</text>
+
+  <!-- Ranking badges -->
+  <rect x="320" y="616" width="356" height="42" rx="8" fill="#f8fafc" stroke="#e6e9ef" />
+  <text x="332" y="642" class="badge">Rank: 2</text>
+  <rect x="676" y="616" width="356" height="42" rx="8" fill="#f8fafc" stroke="#e6e9ef" />
+  <text x="688" y="642" class="badge">Rank: 3</text>
+  <rect x="1032" y="616" width="364" height="42" rx="8" fill="#f8fafc" stroke="#e6e9ef" />
+  <text x="1044" y="642" class="badge">Rank: 1</text>
+
+  <!-- Actions -->
+  <rect x="1136" y="952" width="260" height="36" rx="8" fill="#0a66c2" />
+  <text x="1176" y="976" class="btn">Award to Supplier C</text>
+  <text x="992" y="976" class="badge">Request revision</text>
+  <text x="892" y="976" class="badge">Export</text>
+
+  <!-- Notes -->
+  <text x="44" y="980" class="muted">Weights: price 50%, lead time 20%, compliance 20%, warranty 10%</text>
+</svg>

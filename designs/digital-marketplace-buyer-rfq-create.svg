@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024">
+  <defs>
+    <style>
+      .title { font: 700 20px Arial, sans-serif; fill: #111; }
+      .subtitle { font: 600 14px Arial, sans-serif; fill: #333; }
+      .label { font: 600 12px Arial, sans-serif; fill: #333; }
+      .text { font: 12px Arial, sans-serif; fill: #555; }
+      .muted { font: 12px Arial, sans-serif; fill: #888; }
+      .btn { font: 700 14px Arial, sans-serif; fill: #fff; }
+      .pill { font: 600 11px Arial, sans-serif; fill: #0a66c2; }
+      .badge { font: 600 11px Arial, sans-serif; fill: #555; }
+      .mono { font: 12px 'Courier New', monospace; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1440" height="1024" fill="#f7f8fa" />
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1440" height="64" fill="#0a2540" />
+  <text x="24" y="40" class="title" fill="#fff">Bunna Trade Hub</text>
+  <rect x="1120" y="16" width="280" height="32" rx="6" fill="#173a5e" />
+  <text x="1132" y="37" class="text" fill="#d6e4f0">Search suppliers, categories</text>
+
+  <!-- Breadcrumbs -->
+  <text x="24" y="92" class="text">Marketplace / RFQs / Create RFQ</text>
+
+  <!-- Layout columns -->
+  <rect x="24" y="108" width="260" height="892" rx="8" fill="#ffffff" stroke="#e6e9ef" />
+  <rect x="300" y="108" width="1116" height="892" rx="8" fill="#ffffff" stroke="#e6e9ef" />
+
+  <!-- Left: Steps -->
+  <text x="44" y="140" class="subtitle">RFQ Steps</text>
+
+  <circle cx="44" cy="172" r="10" fill="#0a66c2" />
+  <text x="64" y="177" class="text">1. RFQ Details</text>
+
+  <circle cx="44" cy="208" r="10" fill="#d0d7e2" />
+  <text x="64" y="213" class="text">2. Line Items</text>
+
+  <circle cx="44" cy="244" r="10" fill="#d0d7e2" />
+  <text x="64" y="249" class="text">3. Delivery & Terms</text>
+
+  <circle cx="44" cy="280" r="10" fill="#d0d7e2" />
+  <text x="64" y="285" class="text">4. Visibility</text>
+
+  <circle cx="44" cy="316" r="10" fill="#d0d7e2" />
+  <text x="64" y="321" class="text">5. Review & Submit</text>
+
+  <!-- Right: RFQ form header -->
+  <text x="324" y="140" class="title">Create RFQ</text>
+  <text x="324" y="165" class="muted">Invite qualified sellers to quote. Compare bids side-by-side.</text>
+
+  <!-- RFQ Details Section -->
+  <text x="324" y="202" class="subtitle">RFQ Details</text>
+  <rect x="324" y="212" width="740" height="110" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <text x="340" y="238" class="label">Title</text>
+  <rect x="334" y="246" width="340" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="344" y="264" class="muted">e.g., 5,000 units of A4 Copy Paper</text>
+
+  <text x="700" y="238" class="label">Category</text>
+  <rect x="694" y="246" width="350" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="704" y="264" class="muted">Office Supplies › Paper</text>
+
+  <text x="340" y="290" class="label">Description</text>
+  <rect x="334" y="298" width="710" height="24" rx="6" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Line Items Section -->
+  <text x="324" y="350" class="subtitle">Line Items</text>
+  <rect x="324" y="360" width="1068" height="208" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+
+  <!-- Table header -->
+  <rect x="334" y="386" width="1048" height="32" fill="#f0f3f8" />
+  <text x="346" y="406" class="badge">Item</text>
+  <text x="696" y="406" class="badge">Quantity</text>
+  <text x="818" y="406" class="badge">Unit</text>
+  <text x="920" y="406" class="badge">Specs</text>
+  <text x="1100" y="406" class="badge">Attachments</text>
+
+  <!-- Row 1 -->
+  <rect x="334" y="418" width="1048" height="34" fill="#ffffff" />
+  <rect x="342" y="424" width="320" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="696" y="424" width="100" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="806" y="424" width="80" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="896" y="424" width="180" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="1086" y="424" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Row 2 -->
+  <rect x="334" y="452" width="1048" height="34" fill="#ffffff" />
+  <rect x="342" y="458" width="320" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="696" y="458" width="100" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="806" y="458" width="80" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="896" y="458" width="180" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="1086" y="458" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Add item button -->
+  <rect x="334" y="496" width="120" height="28" rx="6" fill="#0a66c2" />
+  <text x="350" y="515" class="btn">+ Add Item</text>
+
+  <!-- Delivery & Terms Section -->
+  <text x="324" y="596" class="subtitle">Delivery & Terms</text>
+  <rect x="324" y="606" width="1068" height="148" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+
+  <text x="340" y="634" class="label">Required by</text>
+  <rect x="334" y="642" width="200" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="544" y="634" class="label">Delivery location</text>
+  <rect x="538" y="642" width="320" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+
+  <text x="340" y="680" class="label">Incoterms</text>
+  <rect x="334" y="688" width="200" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="544" y="680" class="label">Payment terms</text>
+  <rect x="538" y="688" width="320" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Visibility Section -->
+  <text x="324" y="780" class="subtitle">Visibility</text>
+  <rect x="324" y="790" width="740" height="80" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <rect x="340" y="810" width="16" height="16" rx="3" fill="#0a66c2" />
+  <text x="364" y="823" class="text">Public (all verified sellers)</text>
+  <rect x="540" y="810" width="16" height="16" rx="3" fill="#fff" stroke="#dfe3ea" />
+  <text x="564" y="823" class="text">Private (invite selected sellers)</text>
+
+  <!-- Footer actions -->
+  <rect x="1152" y="952" width="220" height="36" rx="8" fill="#0a66c2" />
+  <text x="1200" y="976" class="btn">Submit RFQ</text>
+  <text x="1032" y="976" class="pill">Save Draft</text>
+
+  <!-- Side: Summary -->
+  <text x="1048" y="140" class="subtitle">RFQ Summary</text>
+  <rect x="1048" y="152" width="348" height="180" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <text x="1064" y="180" class="label">Items</text>
+  <text x="1064" y="200" class="text">2 lines • A4 Paper, Envelopes</text>
+  <text x="1064" y="226" class="label">Delivery</text>
+  <text x="1064" y="246" class="text">Addis Ababa • By 30 Nov</text>
+  <text x="1064" y="272" class="label">Visibility</text>
+  <text x="1064" y="292" class="text">Public</text>
+
+  <!-- Notes -->
+  <text x="324" y="884" class="mono">Note: Buyers can later compare bids per item and total, enforce delivery and payment terms, and message sellers.</text>
+</svg>

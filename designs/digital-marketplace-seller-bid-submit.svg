@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1024" viewBox="0 0 1440 1024">
+  <defs>
+    <style>
+      .title { font: 700 20px Arial, sans-serif; fill: #111; }
+      .subtitle { font: 600 14px Arial, sans-serif; fill: #333; }
+      .label { font: 600 12px Arial, sans-serif; fill: #333; }
+      .text { font: 12px Arial, sans-serif; fill: #555; }
+      .muted { font: 12px Arial, sans-serif; fill: #888; }
+      .btn { font: 700 14px Arial, sans-serif; fill: #fff; }
+      .badge { font: 600 11px Arial, sans-serif; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1440" height="1024" fill="#f7f8fa" />
+
+  <!-- Header -->
+  <rect x="0" y="0" width="1440" height="64" fill="#0a2540" />
+  <text x="24" y="40" class="title" fill="#fff">Bunna Trade Hub</text>
+
+  <!-- Breadcrumbs -->
+  <text x="24" y="92" class="text">Marketplace / RFQs / RFQ-2024-0042 / Submit Bid</text>
+
+  <!-- Main card -->
+  <rect x="24" y="108" width="1392" height="892" rx="8" fill="#ffffff" stroke="#e6e9ef" />
+
+  <!-- RFQ Summary Sidebar -->
+  <rect x="1040" y="128" width="356" height="360" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <text x="1056" y="152" class="subtitle">RFQ Summary</text>
+  <text x="1056" y="174" class="text">A4 Copy Paper • 5,000 units</text>
+  <text x="1056" y="194" class="text">Delivery: Addis Ababa</text>
+  <text x="1056" y="214" class="text">Required by: 30 Nov</text>
+  <text x="1056" y="238" class="label">Specs</text>
+  <text x="1056" y="258" class="text">80gsm, 210x297mm, whiteness 98%</text>
+  <text x="1056" y="286" class="label">Attachments</text>
+  <text x="1056" y="306" class="text">Spec.pdf</text>
+
+  <!-- Bid Form -->
+  <text x="44" y="140" class="title">Submit Bid</text>
+  <text x="44" y="162" class="muted">Provide pricing, lead time, and terms for each line item.</text>
+
+  <!-- Items table -->
+  <text x="44" y="198" class="subtitle">Line Items</text>
+  <rect x="44" y="208" width="972" height="240" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <rect x="56" y="236" width="948" height="32" fill="#f0f3f8" />
+  <text x="68" y="256" class="badge">Item</text>
+  <text x="520" y="256" class="badge">Unit price (ETB)</text>
+  <text x="660" y="256" class="badge">Lead time (days)</text>
+  <text x="820" y="256" class="badge">Warranty</text>
+
+  <!-- Row 1 -->
+  <rect x="56" y="268" width="948" height="32" fill="#ffffff" />
+  <text x="68" y="288" class="text">A4 Copy Paper</text>
+  <rect x="512" y="274" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="652" y="274" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="812" y="274" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Row 2 -->
+  <rect x="56" y="300" width="948" height="32" fill="#ffffff" />
+  <text x="68" y="320" class="text">Envelopes C5</text>
+  <rect x="512" y="306" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="652" y="306" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+  <rect x="812" y="306" width="120" height="22" rx="4" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Terms -->
+  <text x="44" y="474" class="subtitle">Terms</text>
+  <rect x="44" y="484" width="972" height="168" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <text x="60" y="512" class="label">Delivery terms</text>
+  <rect x="56" y="520" width="260" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="336" y="512" class="label">Payment terms</text>
+  <rect x="332" y="520" width="260" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+  <text x="612" y="512" class="label">Validity (days)</text>
+  <rect x="608" y="520" width="180" height="28" rx="6" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Attachments and Notes -->
+  <text x="44" y="674" class="subtitle">Attachments & Notes</text>
+  <rect x="44" y="684" width="972" height="168" rx="8" fill="#fbfcfe" stroke="#e6e9ef" />
+  <text x="60" y="712" class="label">Upload files</text>
+  <rect x="56" y="720" width="280" height="80" rx="8" fill="#fff" stroke="#dfe3ea" />
+  <text x="64" y="740" class="muted">Drop files here or browse</text>
+  <text x="360" y="712" class="label">Internal notes (not shared)</text>
+  <rect x="352" y="720" width="640" height="80" rx="8" fill="#fff" stroke="#dfe3ea" />
+
+  <!-- Actions -->
+  <rect x="1176" y="952" width="220" height="36" rx="8" fill="#0a66c2" />
+  <text x="1238" y="976" class="btn">Submit Bid</text>
+  <text x="1048" y="976" class="badge">Save Draft</text>
+
+  <!-- Footer note -->
+  <text x="44" y="976" class="muted">Your bid will be visible to the buyer after submission. You can revise until the RFQ deadline.</text>
+</svg>
