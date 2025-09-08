@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Marketplace - B2B RFQ Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rfq-section {
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .rfq-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9f9f9;
+        }
+        
+        .rfq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rfq-title {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .rfq-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-active { background: #d4edda; color: #155724; }
+        .status-pending { background: #fff3cd; color: #856404; }
+        .status-closed { background: #f8d7da; color: #721c24; }
+        
+        .rfq-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .detail-item {
+            font-size: 0.9rem;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .menu-item {
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menu-item:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .menu-item.active {
+            background-color: #667eea;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .quick-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Bunna B2B Marketplace</div>
+            <ul class="nav-links">
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#rfqs">RFQs</a></li>
+                <li><a href="#bids">Bids</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">47</div>
+                <div>Active RFQs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">156</div>
+                <div>Total Bids Received</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">23</div>
+                <div>Orders This Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">892</div>
+                <div>Verified Suppliers</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="sidebar">
+                <h3>Quick Actions</h3>
+                <div class="menu-item active">Create New RFQ</div>
+                <div class="menu-item">Browse Suppliers</div>
+                <div class="menu-item">Manage Bids</div>
+                <div class="menu-item">Order History</div>
+                <div class="menu-item">Payment Center</div>
+                <div class="menu-item">Dispute Resolution</div>
+                
+                <h3 style="margin-top: 2rem;">Account Status</h3>
+                <div style="padding: 1rem; background: #d4edda; border-radius: 5px; margin-top: 0.5rem;">
+                    <strong>✓ Verified Business</strong><br>
+                    <small>KYC Completed • Credit Approved</small>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="quick-actions">
+                    <a href="#" class="btn">+ Create RFQ</a>
+                    <a href="#" class="btn btn-secondary">Browse Catalog</a>
+                </div>
+
+                <div class="rfq-section">
+                    <h2 class="section-title">Recent RFQs</h2>
+                    
+                    <div class="rfq-card">
+                        <div class="rfq-header">
+                            <div class="rfq-title">Industrial Steel Pipes - 500 Units</div>
+                            <div class="rfq-status status-active">Active</div>
+                        </div>
+                        <div class="rfq-details">
+                            <div class="detail-item">
+                                <div class="detail-label">RFQ ID:</div>
+                                <div>RFQ-2024-001</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline:</div>
+                                <div>Jan 25, 2024</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Bids Received:</div>
+                                <div>8 bids</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Budget Range:</div>
+                                <div>$25,000 - $35,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rfq-card">
+                        <div class="rfq-header">
+                            <div class="rfq-title">Office Furniture Package</div>
+                            <div class="rfq-status status-pending">Evaluating</div>
+                        </div>
+                        <div class="rfq-details">
+                            <div class="detail-item">
+                                <div class="detail-label">RFQ ID:</div>
+                                <div>RFQ-2024-002</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Deadline:</div>
+                                <div>Jan 20, 2024</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Bids Received:</div>
+                                <div>12 bids</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Budget Range:</div>
+                                <div>$15,000 - $20,000</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rfq-card">
+                        <div class="rfq-header">
+                            <div class="rfq-title">Raw Materials - Monthly Supply</div>
+                            <div class="rfq-status status-closed">Awarded</div>
+                        </div>
+                        <div class="rfq-details">
+                            <div class="detail-item">
+                                <div class="detail-label">RFQ ID:</div>
+                                <div>RFQ-2024-003</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completed:</div>
+                                <div>Jan 15, 2024</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Winning Bid:</div>
+                                <div>$45,000</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Supplier:</div>
+                                <div>ABC Materials Ltd</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rfq-section">
+                    <h2 class="section-title">Pending Actions</h2>
+                    <div style="padding: 1rem; background: #fff3cd; border-radius: 5px;">
+                        <strong>3 bids require evaluation</strong><br>
+                        <small>RFQ-2024-002: Office Furniture Package</small><br>
+                        <a href="#" class="btn" style="margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.9rem;">Review Bids</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

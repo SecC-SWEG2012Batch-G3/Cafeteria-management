@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bid Comparison - B2B Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .rfq-summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        
+        .summary-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .filters-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            align-items: end;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .filter-select {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .comparison-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .table-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        .bids-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .bids-table th,
+        .bids-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .bids-table th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #333;
+            position: sticky;
+            top: 0;
+        }
+        
+        .supplier-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .supplier-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .supplier-details h4 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .supplier-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .price-cell {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .price-best {
+            color: #28a745;
+            background: #d4edda;
+            padding: 0.25rem 0.5rem;
+            border-radius: 5px;
+        }
+        
+        .price-competitive {
+            color: #ffc107;
+        }
+        
+        .price-high {
+            color: #dc3545;
+        }
+        
+        .delivery-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .delivery-fast {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .delivery-standard {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .delivery-slow {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .score-cell {
+            text-align: center;
+        }
+        
+        .score-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .score-excellent {
+            background: #28a745;
+        }
+        
+        .score-good {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .score-fair {
+            background: #fd7e14;
+        }
+        
+        .score-poor {
+            background: #dc3545;
+        }
+        
+        .actions-cell {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .btn-small {
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+        }
+        
+        .comparison-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .recommendation-box {
+            border-left: 4px solid #28a745;
+            background: #d4edda;
+            padding: 1.5rem;
+            border-radius: 5px;
+        }
+        
+        .recommendation-title {
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stars {
+            color: #ffc107;
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .filters-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rfq-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions-cell {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Bunna B2B Marketplace</div>
+            <ul class="nav-links">
+                <li><a href="digital-marketplace-dashboard.html">Dashboard</a></li>
+                <li><a href="rfq-management.html">RFQs</a></li>
+                <li><a href="#bids">Bids</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Bid Comparison - Industrial Steel Pipes</h1>
+            <div class="breadcrumb">
+                <a href="digital-marketplace-dashboard.html">Dashboard</a> > <a href="rfq-management.html">RFQs</a> > <a href="#">RFQ-2024-001</a> > Bid Comparison
+            </div>
+        </div>
+
+        <div class="rfq-summary">
+            <div class="summary-item">
+                <div class="summary-value">RFQ-2024-001</div>
+                <div class="summary-label">Request ID</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">12</div>
+                <div class="summary-label">Total Bids</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">Jan 25, 2024</div>
+                <div class="summary-label">Deadline</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">500 Units</div>
+                <div class="summary-label">Quantity</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">$25K - $35K</div>
+                <div class="summary-label">Budget Range</div>
+            </div>
+        </div>
+
+        <div class="filters-section">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <label class="filter-label">Sort By</label>
+                    <select class="filter-select">
+                        <option value="score">Overall Score</option>
+                        <option value="price">Price (Low to High)</option>
+                        <option value="price-desc">Price (High to Low)</option>
+                        <option value="delivery">Delivery Time</option>
+                        <option value="rating">Supplier Rating</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Price Range</label>
+                    <select class="filter-select">
+                        <option value="all">All Prices</option>
+                        <option value="under-budget">Under Budget</option>
+                        <option value="within-budget">Within Budget</option>
+                        <option value="over-budget">Over Budget</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Supplier Rating</label>
+                    <select class="filter-select">
+                        <option value="all">All Ratings</option>
+                        <option value="5-star">5 Stars</option>
+                        <option value="4-plus">4+ Stars</option>
+                        <option value="3-plus">3+ Stars</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Delivery Time</label>
+                    <select class="filter-select">
+                        <option value="all">All Delivery Times</option>
+                        <option value="fast">≤ 2 weeks</option>
+                        <option value="standard">2-4 weeks</option>
+                        <option value="extended">4+ weeks</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-table">
+            <div class="table-header">
+                <h2>Bid Comparison</h2>
+                <div>
+                    <button class="btn btn-outline btn-small">Export Comparison</button>
+                    <button class="btn btn-small">Generate Report</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="bids-table">
+                    <thead>
+                        <tr>
+                            <th>Supplier</th>
+                            <th>Total Price</th>
+                            <th>Unit Price</th>
+                            <th>Delivery Time</th>
+                            <th>Payment Terms</th>
+                            <th>Warranty</th>
+                            <th>Overall Score</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #f8fff8; border-left: 4px solid #28a745;">
+                            <td>
+                                <div class="supplier-info">
+                                    <div class="supplier-avatar">AM</div>
+                                    <div class="supplier-details">
+                                        <h4>ABC Materials Ltd</h4>
+                                        <div class="supplier-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span>4.8 (127 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price-cell price-best">$24,500</td>
+                            <td>$49.00</td>
+                            <td><span class="delivery-badge delivery-fast">10 days</span></td>
+                            <td>Net 30</td>
+                            <td>24 months</td>
+                            <td class="score-cell">
+                                <div class="score-circle score-excellent">95</div>
+                                <div style="font-size: 0.8rem; color: #666;">Excellent</div>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn btn-success btn-small">Award</button>
+                                <button class="btn btn-outline btn-small">View Details</button>
+                                <button class="btn btn-outline btn-small">Message</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="supplier-info">
+                                    <div class="supplier-avatar">SI</div>
+                                    <div class="supplier-details">
+                                        <h4>Steel Industries Co.</h4>
+                                        <div class="supplier-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span>4.5 (89 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price-cell price-competitive">$26,750</td>
+                            <td>$53.50</td>
+                            <td><span class="delivery-badge delivery-standard">14 days</span></td>
+                            <td>Net 45</td>
+                            <td>18 months</td>
+                            <td class="score-cell">
+                                <div class="score-circle score-good">87</div>
+                                <div style="font-size: 0.8rem; color: #666;">Very Good</div>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn btn-small">Consider</button>
+                                <button class="btn btn-outline btn-small">View Details</button>
+                                <button class="btn btn-outline btn-small">Message</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="supplier-info">
+                                    <div class="supplier-avatar">GM</div>
+                                    <div class="supplier-details">
+                                        <h4>Global Metal Works</h4>
+                                        <div class="supplier-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span>4.2 (156 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price-cell">$28,200</td>
+                            <td>$56.40</td>
+                            <td><span class="delivery-badge delivery-fast">7 days</span></td>
+                            <td>Net 30</td>
+                            <td>36 months</td>
+                            <td class="score-cell">
+                                <div class="score-circle score-good">82</div>
+                                <div style="font-size: 0.8rem; color: #666;">Good</div>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn btn-small">Consider</button>
+                                <button class="btn btn-outline btn-small">View Details</button>
+                                <button class="btn btn-outline btn-small">Message</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="supplier-info">
+                                    <div class="supplier-avatar">IS</div>
+                                    <div class="supplier-details">
+                                        <h4>Industrial Supply Hub</h4>
+                                        <div class="supplier-rating">
+                                            <span class="stars">★★★☆☆</span>
+                                            <span>3.9 (43 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price-cell price-high">$32,800</td>
+                            <td>$65.60</td>
+                            <td><span class="delivery-badge delivery-standard">21 days</span></td>
+                            <td>Net 60</td>
+                            <td>12 months</td>
+                            <td class="score-cell">
+                                <div class="score-circle score-fair">74</div>
+                                <div style="font-size: 0.8rem; color: #666;">Fair</div>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn btn-small">Review</button>
+                                <button class="btn btn-outline btn-small">View Details</button>
+                                <button class="btn btn-outline btn-small">Message</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="supplier-info">
+                                    <div class="supplier-avatar">PM</div>
+                                    <div class="supplier-details">
+                                        <h4>Premium Materials Inc.</h4>
+                                        <div class="supplier-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span>4.9 (78 reviews)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="price-cell price-high">$34,950</td>
+                            <td>$69.90</td>
+                            <td><span class="delivery-badge delivery-fast">5 days</span></td>
+                            <td>Net 15</td>
+                            <td>60 months</td>
+                            <td class="score-cell">
+                                <div class="score-circle score-good">85</div>
+                                <div style="font-size: 0.8rem; color: #666;">Good</div>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn btn-small">Consider</button>
+                                <button class="btn btn-outline btn-small">View Details</button>
+                                <button class="btn btn-outline btn-small">Message</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="comparison-summary">
+            <div class="summary-grid">
+                <div>
+                    <h3>Comparison Summary</h3>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>Best Value:</strong> ABC Materials Ltd offers the best combination of price, quality, and delivery time.</p>
+                        <p><strong>Fastest Delivery:</strong> Premium Materials Inc. (5 days) but at premium pricing.</p>
+                        <p><strong>Longest Warranty:</strong> Premium Materials Inc. offers 60-month warranty.</p>
+                        <p><strong>Best Rating:</strong> Premium Materials Inc. (4.9/5 stars).</p>
+                    </div>
+                </div>
+                
+                <div class="recommendation-box">
+                    <div class="recommendation-title">🏆 Recommended Choice</div>
+                    <p><strong>ABC Materials Ltd</strong></p>
+                    <p>• Best overall value at $24,500</p>
+                    <p>• Fast delivery (10 days)</p>
+                    <p>• Excellent supplier rating (4.8/5)</p>
+                    <p>• Competitive warranty (24 months)</p>
+                    <p>• Favorable payment terms (Net 30)</p>
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-success">Award This Bid</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', function() {
+                // Implement filtering logic here
+                console.log('Filter changed:', this.value);
+            });
+        });
+
+        // Award bid functionality
+        document.querySelectorAll('.btn-success').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to award this bid to ABC Materials Ltd?')) {
+                    alert('Bid awarded successfully! The supplier will be notified.');
+                }
+            });
+        });
+
+        // Message supplier functionality
+        document.querySelectorAll('.btn-outline').forEach(btn => {
+            if (btn.textContent.includes('Message')) {
+                btn.addEventListener('click', function() {
+                    alert('Opening message composer...');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
