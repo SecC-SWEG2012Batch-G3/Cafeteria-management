@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Buyer - Create RFQ</title>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+			<div>
+				<div class="brand">Bunna Digital Marketplace</div>
+				<div class="role">Buyer</div>
+			</div>
+			<div class="toolbar">
+				<a class="btn" href="./index.html">Back to Index</a>
+				<a class="btn" href="./buyer-compare-bids.html">Compare Bids</a>
+			</div>
+		</div>
+
+		<div class="breadcrumbs">Buyer / RFQs / Create RFQ</div>
+
+		<div class="grid cols-2">
+			<div class="card">
+				<h3>New RFQ</h3>
+				<form class="form">
+					<div class="row">
+						<label>RFQ Title</label>
+						<input type="text" placeholder="e.g., 500 Units of A4 Copy Paper (80gsm)" />
+					</div>
+					<div class="row">
+						<label>Category</label>
+						<select>
+							<option>Office Supplies</option>
+							<option>IT Equipment</option>
+							<option>Logistics Services</option>
+							<option>Construction Materials</option>
+						</select>
+					</div>
+					<div class="row">
+						<label>Specifications</label>
+						<textarea placeholder="Include brand-equivalent, quality, certifications, packaging, etc."></textarea>
+					</div>
+					<div class="row">
+						<label>Quantity</label>
+						<input type="number" placeholder="500" />
+					</div>
+					<div class="row">
+						<label>Delivery Location</label>
+						<input type="text" placeholder="Addis Ababa, Bole Warehouse 2" />
+					</div>
+					<div class="row">
+						<label>Delivery Deadline</label>
+						<input type="date" />
+					</div>
+					<div class="row">
+						<label>Incoterms / Shipping Terms</label>
+						<select>
+							<option>FOB</option>
+							<option>CIF</option>
+							<option>DDP</option>
+							<option>EXW</option>
+						</select>
+					</div>
+					<div class="row">
+						<label>Payment Terms</label>
+						<select>
+							<option>Escrow (recommended)</option>
+							<option>Net 30</option>
+							<option>Upfront</option>
+						</select>
+					</div>
+					<div class="row">
+						<label>Attachments</label>
+						<input type="text" placeholder="(mock) spec.pdf, packaging.png" />
+					</div>
+					<div class="divider"></div>
+					<div class="toolbar">
+						<div class="btn">Save Draft</div>
+						<div class="btn primary">Publish RFQ</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="side">
+				<div class="card">
+					<h3>RFQ Summary</h3>
+					<div class="totals">
+						<div class="line"><span>Vendors invited</span><strong>Auto-match</strong></div>
+						<div class="line"><span>Bid deadline</span><strong>7 days</strong></div>
+						<div class="line"><span>Escrow</span><span class="pill ok">Enabled</span></div>
+					</div>
+					<div class="footnote">Auto-matched suppliers will be notified upon publish.</div>
+				</div>
+				<div class="card">
+					<h3>Compliance</h3>
+					<p class="meta">Bunna policy: High-value trades require escrow and KYC verification.</p>
+					<p><span class="pill ok">KYC Complete</span> <span class="pill warn">Budget cap: 500,000 ETB</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

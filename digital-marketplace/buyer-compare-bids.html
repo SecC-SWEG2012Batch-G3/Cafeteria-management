@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Buyer - Compare Bids</title>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+			<div>
+				<div class="brand">Bunna Digital Marketplace</div>
+				<div class="role">Buyer</div>
+			</div>
+			<div class="toolbar">
+				<a class="btn" href="./index.html">Back to Index</a>
+				<a class="btn" href="./buyer-rfq-create.html">Create RFQ</a>
+			</div>
+		</div>
+
+		<div class="breadcrumbs">Buyer / RFQs / RFQ-2025-0041 / Compare Bids</div>
+
+		<div class="card">
+			<h3>Bid Comparison</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Criterion</th>
+						<th>Vendor A</th>
+						<th>Vendor B</th>
+						<th>Vendor C</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Total Price (ETB)</td>
+						<td>480,000</td>
+						<td>472,500</td>
+						<td>490,000</td>
+					</tr>
+					<tr>
+						<td>Unit Price (ETB)</td>
+						<td>960</td>
+						<td>945</td>
+						<td>980</td>
+					</tr>
+					<tr>
+						<td>Lead Time (days)</td>
+						<td>7</td>
+						<td>10</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td>Payment Terms</td>
+						<td>Escrow</td>
+						<td>Net 30</td>
+						<td>Escrow</td>
+					</tr>
+					<tr>
+						<td>Compliance</td>
+						<td><span class="pill ok">Meets spec</span></td>
+						<td><span class="pill warn">Minor deviation</span></td>
+						<td><span class="pill ok">Meets spec</span></td>
+					</tr>
+					<tr>
+						<td>Warranty</td>
+						<td>12 months</td>
+						<td>6 months</td>
+						<td>12 months</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="toolbar" style="margin-top:12px;">
+				<div class="btn">Download as PDF</div>
+				<div class="btn primary">Award to Vendor B</div>
+			</div>
+		</div>
+
+		<div class="grid cols-3" style="margin-top:16px;">
+			<div class="card">
+				<h4>Vendor A Notes</h4>
+				<p class="meta">Includes free delivery. Lead time 7 days.</p>
+			</div>
+			<div class="card">
+				<h4>Vendor B Notes</h4>
+				<p class="meta">Lowest price; longer lead time.</p>
+			</div>
+			<div class="card">
+				<h4>Vendor C Notes</h4>
+				<p class="meta">Fastest lead time; slightly higher price.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
