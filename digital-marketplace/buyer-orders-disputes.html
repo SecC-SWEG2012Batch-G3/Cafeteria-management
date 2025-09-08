@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Buyer - Orders & Disputes</title>
+	<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+	<div class="page">
+		<div class="header">
+			<div>
+				<div class="brand">Bunna Digital Marketplace</div>
+				<div class="role">Buyer</div>
+			</div>
+			<div class="toolbar">
+				<a class="btn" href="./index.html">Back to Index</a>
+				<a class="btn" href="./buyer-rfq-create.html">Create RFQ</a>
+			</div>
+		</div>
+
+		<div class="breadcrumbs">Buyer / Orders & Disputes</div>
+
+		<div class="card">
+			<h3>Orders</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Order ID</th>
+						<th>From RFQ</th>
+						<th>Vendor</th>
+						<th>Status</th>
+						<th>Total (ETB)</th>
+						<th>Payment</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>PO-2025-1021</td>
+						<td>RFQ-2025-0041</td>
+						<td>Vendor B</td>
+						<td><span class="pill">In fulfillment</span></td>
+						<td>472,500</td>
+						<td><span class="pill ok">Escrow</span></td>
+						<td><div class="btn">View</div></td>
+					</tr>
+					<tr>
+						<td>PO-2025-0998</td>
+						<td>RFQ-2025-0030</td>
+						<td>Vendor A</td>
+						<td><span class="pill ok">Delivered</span></td>
+						<td>318,000</td>
+						<td><span class="pill">Settled</span></td>
+						<td><div class="btn">Invoice</div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="card" style="margin-top:16px;">
+			<h3>Disputes</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Dispute ID</th>
+						<th>Order ID</th>
+						<th>Issue</th>
+						<th>Status</th>
+						<th>Updated</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>DP-2025-011</td>
+						<td>PO-2025-0998</td>
+						<td>Damaged packaging</td>
+						<td><span class="pill warn">In mediation</span></td>
+						<td>2 days ago</td>
+						<td><div class="btn">View</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="footnote">Mediation managed under SLA; funds held in escrow until resolution.</div>
+		</div>
+	</div>
+</body>
+</html>
+
