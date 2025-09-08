@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Management - B2B Marketplace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .breadcrumb {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+        
+        .main-panel {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .side-panel {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .panel-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .panel-content {
+            padding: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: white;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .btn-outline:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .requirements-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .requirement-input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .add-requirement {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        
+        .timeline-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-event {
+            margin-top: 0.25rem;
+            color: #666;
+        }
+        
+        .attachment-zone {
+            border: 2px dashed #ddd;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            background: #fafafa;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        
+        .attachment-zone:hover {
+            border-color: #667eea;
+        }
+        
+        .attachment-list {
+            margin-top: 1rem;
+        }
+        
+        .attachment-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Bunna B2B Marketplace</div>
+            <ul class="nav-links">
+                <li><a href="digital-marketplace-dashboard.html">Dashboard</a></li>
+                <li><a href="#rfqs">RFQs</a></li>
+                <li><a href="#bids">Bids</a></li>
+                <li><a href="#orders">Orders</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1 class="page-title">Create Request for Quotation (RFQ)</h1>
+            <div class="breadcrumb">
+                <a href="digital-marketplace-dashboard.html">Dashboard</a> > <a href="#">RFQs</a> > Create New RFQ
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="main-panel">
+                <div class="panel-header">
+                    <h2>RFQ Details</h2>
+                </div>
+                <div class="panel-content">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">RFQ Title *</label>
+                            <input type="text" class="form-input" placeholder="e.g., Industrial Steel Pipes for Construction Project" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Category *</label>
+                                <select class="form-select" required>
+                                    <option value="">Select Category</option>
+                                    <option value="raw-materials">Raw Materials</option>
+                                    <option value="machinery">Machinery & Equipment</option>
+                                    <option value="electronics">Electronics & Components</option>
+                                    <option value="textiles">Textiles & Apparel</option>
+                                    <option value="construction">Construction Materials</option>
+                                    <option value="chemicals">Chemicals & Pharmaceuticals</option>
+                                    <option value="food-agriculture">Food & Agriculture</option>
+                                    <option value="services">Professional Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Estimated Budget Range</label>
+                                <select class="form-select">
+                                    <option value="">Select Budget Range</option>
+                                    <option value="under-10k">Under $10,000</option>
+                                    <option value="10k-50k">$10,000 - $50,000</option>
+                                    <option value="50k-100k">$50,000 - $100,000</option>
+                                    <option value="100k-500k">$100,000 - $500,000</option>
+                                    <option value="over-500k">Over $500,000</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Detailed Description *</label>
+                            <textarea class="form-textarea" placeholder="Provide detailed specifications, quality requirements, delivery expectations, and any other relevant information for suppliers..." required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Quantity Required *</label>
+                                <input type="number" class="form-input" placeholder="e.g., 500" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Unit of Measurement</label>
+                                <select class="form-select">
+                                    <option value="pieces">Pieces</option>
+                                    <option value="kg">Kilograms</option>
+                                    <option value="tons">Tons</option>
+                                    <option value="meters">Meters</option>
+                                    <option value="liters">Liters</option>
+                                    <option value="sets">Sets</option>
+                                    <option value="boxes">Boxes</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">RFQ Deadline *</label>
+                                <input type="date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Expected Delivery Date</label>
+                                <input type="date" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Delivery Location</label>
+                            <input type="text" class="form-input" placeholder="e.g., Addis Ababa, Ethiopia">
+                        </div>
+
+                        <div class="requirements-section">
+                            <h3>Technical Requirements & Specifications</h3>
+                            <div id="requirements-list">
+                                <div class="requirement-item">
+                                    <input type="text" class="requirement-input" placeholder="e.g., Material: Stainless Steel Grade 316">
+                                    <button type="button" class="remove-btn">×</button>
+                                </div>
+                                <div class="requirement-item">
+                                    <input type="text" class="requirement-input" placeholder="e.g., Diameter: 50mm (+/- 2mm tolerance)">
+                                    <button type="button" class="remove-btn">×</button>
+                                </div>
+                            </div>
+                            <button type="button" class="add-requirement">+ Add Requirement</button>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Additional Terms & Conditions</label>
+                            <textarea class="form-textarea" placeholder="Payment terms, warranty requirements, compliance standards, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Attachments</label>
+                            <div class="attachment-zone">
+                                <p>📎 Drop files here or click to browse</p>
+                                <small>Supported formats: PDF, DOC, XLS, Images (Max 10MB each)</small>
+                            </div>
+                            <div class="attachment-list">
+                                <div class="attachment-item">
+                                    <span>📄 Technical_Specifications.pdf</span>
+                                    <button type="button" class="remove-btn">×</button>
+                                </div>
+                                <div class="attachment-item">
+                                    <span>🖼️ Reference_Image.jpg</span>
+                                    <button type="button" class="remove-btn">×</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                            <button type="submit" class="btn">Publish RFQ</button>
+                            <button type="button" class="btn btn-outline">Save as Draft</button>
+                            <button type="button" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="side-panel">
+                <h3>RFQ Guidelines</h3>
+                <div style="font-size: 0.9rem; color: #666; line-height: 1.6;">
+                    <p><strong>✓ Be Specific:</strong> Provide detailed specifications to get accurate quotes.</p>
+                    <p><strong>✓ Set Realistic Deadlines:</strong> Allow suppliers sufficient time to prepare quality bids.</p>
+                    <p><strong>✓ Include Attachments:</strong> Technical drawings, samples, or reference materials help suppliers understand your needs.</p>
+                    <p><strong>✓ Clear Terms:</strong> Specify payment terms, delivery requirements, and quality standards upfront.</p>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Recent Activity</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 18, 2024</div>
+                    <div class="timeline-event">RFQ-2024-001 received 3 new bids</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 17, 2024</div>
+                    <div class="timeline-event">Office Furniture RFQ published</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 16, 2024</div>
+                    <div class="timeline-event">Raw Materials RFQ awarded to ABC Materials</div>
+                </div>
+
+                <h3 style="margin-top: 2rem;">Need Help?</h3>
+                <div style="padding: 1rem; background: #f8f9fa; border-radius: 5px; font-size: 0.9rem;">
+                    <p>Contact our procurement specialists:</p>
+                    <p><strong>📞 +251-11-123-4567</strong></p>
+                    <p><strong>✉️ procurement@bunna.com</strong></p>
+                    <button class="btn btn-outline" style="margin-top: 0.5rem; font-size: 0.8rem; padding: 0.5rem 1rem;">Live Chat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add requirement functionality
+        document.querySelector('.add-requirement').addEventListener('click', function() {
+            const requirementsList = document.getElementById('requirements-list');
+            const newRequirement = document.createElement('div');
+            newRequirement.className = 'requirement-item';
+            newRequirement.innerHTML = `
+                <input type="text" class="requirement-input" placeholder="Enter requirement specification">
+                <button type="button" class="remove-btn">×</button>
+            `;
+            requirementsList.appendChild(newRequirement);
+        });
+
+        // Remove requirement functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-btn')) {
+                e.target.parentElement.remove();
+            }
+        });
+
+        // File upload simulation
+        document.querySelector('.attachment-zone').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.multiple = true;
+            input.accept = '.pdf,.doc,.docx,.xls,.xlsx,.jpg,.png,.gif';
+            input.click();
+        });
+    </script>
+</body>
+</html>
